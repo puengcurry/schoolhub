@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>성적 분석기</h2>
+<form method="post">
+  <div class="form-group">
+    <p>수행평가 점수: <input name="score1" class="form-input"> (비율: <input name="weight1" class="form-input">%</p>
+  </div>
+  <div class="form-group">
+    <p>지필고사 점수: <input name="score2" class="form-input"> (비율: <input name="weight2" class="form-input">%</p>
+  </div>
+  <div class="form-group">
+    <p>다음 시험(지필)의 반영 비율(예: 30%면 30): <input name="future_weight" class="form-input"></p>
+  </div>
+  <div class="form-group">
+    <p>목표 총점 (예: 90): <input name="target" class="form-input"></p>
+  </div>
+  <p><button type="submit" class="button">계산</button></p>
+</form>
+{% if result %}
+  <div class="result-box">
+    <h3>결과</h3>
+    <p>현재 총점(예상): <strong>{{ result.current }}</strong></p>
+    {% if result.need is not none %}
+      <p>다음 시험에서 필요한 최소 점수: <strong>{{ result.need }}</strong></p>
+    {% else %}
+      <p>다음 시험 반영비가 0으로 설정되어 있어 필요 점수를 계산할 수 없습니다.</p>
+    {% endif %}
+  </div>
+{% endif %}
+{% endblock %}

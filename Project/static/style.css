@@ -1,0 +1,240 @@
+/*
+ * 이 CSS 코드는 전문적인 교육 사이트를 위한 스타일입니다.
+ * - 메인 컬러 팔레트를 연한 핑크색으로 통일합니다.
+ * - 각 요소를 카드 형태로 만들고, 버튼과 폼을 더 보기 좋게 개선합니다.
+ * - 반응형 디자인을 일부 적용하여 모바일에서도 보기 좋게 만듭니다.
+ */
+
+/* 1. Google Fonts에서 '나눔고딕 라운드'와 'Poppins' 폰트 불러오기 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Round:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+/* 2. 전체 페이지 스타일 */
+body {
+    font-family: 'Nanum Gothic Round', 'Poppins', Arial, sans-serif;
+    background-color: #ffffff; /* 배경색을 흰색으로 변경 */
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 3. 내비게이션 바 스타일 */
+nav {
+    background: #e91e63; /* 진한 핑크색 유지 */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav .brand {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #f8bbd0;
+}
+
+
+/* 4. 컨테이너 스타일 (좌우 여백 최적화) */
+.container {
+    flex: 1 !important;
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 30px 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+
+/* 5. 플래시 메시지 (알림) 스타일 */
+.flashes {
+    list-style: none;
+    padding: 15px;
+    margin: 0 0 20px 0;
+    background-color: #f8bbd0; /* 부드러운 핑크 배경색 */
+    color: #880e4f; /* 글자색 */
+    border-radius: 8px;
+    font-weight: 600;
+}
+.flashes li {
+    margin-bottom: 5px;
+}
+.flashes li:last-child {
+    margin-bottom: 0;
+}
+
+/* 6. 질문 및 과제 목록 스타일 (카드형) */
+.questions, .tasks ul {
+    list-style: none;
+    padding: 0;
+}
+
+.questions li, .tasks li {
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+.questions li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.questions a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.questions a:hover {
+    color: #e91e63;
+}
+
+.meta {
+    color: #888;
+    font-size: 0.85em;
+    margin-top: 8px;
+}
+
+.thumb {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+.bigimg {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* 7. 답변 스타일 */
+.answer {
+    background: #fefefe;
+    padding: 15px;
+    border-left: 4px solid #f06292; /* 핑크색 라인 */
+    border-radius: 6px;
+    margin-top: 15px;
+}
+.answer .meta {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.answer .is-accepted {
+    color: #4caf50;
+    font-weight: 700;
+}
+
+/* 8. 폼 요소 스타일 */
+input[type="text"], input[type="password"], textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: 'Nanum Gothic Round', sans-serif;
+}
+
+button[type="submit"], .button {
+    background-color: #e91e63; /* 진한 핑크색 버튼 */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button[type="submit"]:hover, .button:hover {
+    background-color: #c2185b; /* 마우스 오버 시 더 진한 핑크색 */
+    transform: translateY(-1px);
+}
+
+/* 9. 과제 목록 스타일 */
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-item .done {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task-item .action {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.task-item .action:hover {
+    background-color: #388e3c;
+}
+
+/* 10. 반응형 디자인 */
+@media (max-width: 900px) {
+    .container {
+        max-width: 90%; /* 화면 너비의 90%를 사용 */
+        margin: 20px auto;
+        padding: 20px 25px;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        max-width: 95%; /* 모바일에서는 더 넓게 사용 */
+        margin: 10px auto;
+        padding: 15px 20px;
+    }
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav .brand {
+        margin-bottom: 10px;
+    }
+    nav a {
+        margin: 5px 10px;
+    }
+}
+
+/* main-content가 .container처럼 동작하도록 복제 */
+.main-content {
+    flex: 1;
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 30px 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}

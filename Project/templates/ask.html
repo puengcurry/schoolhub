@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>질문 등록</h2>
+<form method="post" enctype="multipart/form-data">
+  {{ form.hidden_tag() }}
+  <p>{{ form.title.label }}<br>{{ form.title(class='form-input') }}</p>
+  <p>{{ form.content.label }}<br>{{ form.content(class='form-input', rows=6) }}</p>
+  <p>이미지 업로드 (선택)<br><input type="file" name="image" accept="image/*" class="form-input"></p>
+  <p>{{ form.submit(class='button') }}</p>
+</form>
+{% endblock %}

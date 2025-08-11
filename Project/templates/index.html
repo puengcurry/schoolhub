@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>최근 질문 목록</h2>
+<p><a href="{{ url_for('ask') }}" class="button">질문하기</a></p>
+{% if questions %}
+  <ul class="questions">
+  {% for q in questions %}
+    <li>
+      <a href="{{ url_for('question_detail', q_id=q.id) }}">
+        <strong>{{ q.title }}</strong>
+      </a>
+      <div class="meta">작성자: {{ q.author.username if q.author else '익명' }} | {{ q.created_at.strftime('%Y-%m-%d %H:%M') }}</div>
+      <p>{{ q.content[:120] }}{% if q.content|length > 120 %}...{% endif %}</p>
+      {% if q.image %}
+        <img src="{{ url_for('uploaded_file', filename=q.image) }}" alt="img" class="thumb">
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>등록된 질문이 없습니다.</p>
+{% endif %}
+{% endblock %}

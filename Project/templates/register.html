@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>회원가입</h2>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <p>{{ form.username.label }}<br>{{ form.username(class='form-input') }}</p>
+  <p>{{ form.password.label }}<br>{{ form.password(class='form-input') }}</p>
+  <p>{{ form.submit(class='button') }}</p>
+</form>
+{% endblock %}

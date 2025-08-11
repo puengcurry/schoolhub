@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>과제/시험 관리</h2>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <p>{{ form.subject.label }}<br>{{ form.subject() }}</p>
+  <p>{{ form.title.label }}<br>{{ form.title() }}</p>
+  <p>{{ form.due_date.label }} (예: 2025-09-01)<br>{{ form.due_date() }}</p>
+  <p>{{ form.submit(class='button') }}</p>
+</form>
+
+<hr>
+<h3>내 과제 목록</h3>
+<ul class="tasks">
+  {% for t in tasks %}
+    <li class="task-item {% if t.is_done %}done{% endif %}">
+      <div>
+        <strong>[{{ t.subject }}] {{ t.title }}</strong>
+        <div class="meta">마감: {{ t.due_date }}</div>
+      </div>
+      <div>
+        {% if not t.is_done %}
+          <a href="{{ url_for('toggle_task', task_id=t.id) }}" class="action">완료로 표시</a>
+        {% else %}
+          (완료)
+        {% endif %}
+      </div>
+    </li>
+  {% else %}
+    <li>과제가 없습니다.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
