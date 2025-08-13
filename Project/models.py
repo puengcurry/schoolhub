@@ -8,8 +8,11 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
     points = db.Column(db.Integer, default=0)
+    # 로그인 상태를 추적하는 필드 추가
+    is_logged_in = db.Column(db.Boolean, default=False)
     questions = db.relationship('Question', backref='author', lazy=True)
     answers = db.relationship('Answer', backref='author', lazy=True)
+    tasks = db.relationship('Task', backref='owner', lazy=True)
 
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)

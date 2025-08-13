@@ -22,7 +22,7 @@ body {
 
 /* 3. 내비게이션 바 스타일 */
 nav {
-    background: #e91e63; /* 진한 핑크색 유지 */
+    background: #f38db0; /* 진한 핑크색 유지 e91e63 */
     color: white;
     padding: 15px 20px;
     display: flex;
@@ -52,7 +52,7 @@ nav a:hover {
 
 /* 4. 컨테이너 스타일 (좌우 여백 최적화) */
 .container {
-    flex: 1 !important;
+    flex: 1 ;
     max-width: 850px;
     margin: 20px auto;
     padding: 30px 40px;
@@ -68,7 +68,7 @@ nav a:hover {
     list-style: none;
     padding: 15px;
     margin: 0 0 20px 0;
-    background-color: #f8bbd0; /* 부드러운 핑크 배경색 */
+    background-color: #f38db0; /* 부드러운 핑크 배경색 f8bbd0 */
     color: #880e4f; /* 글자색 */
     border-radius: 8px;
     font-weight: 600;
@@ -107,7 +107,7 @@ nav a:hover {
 }
 
 .questions a:hover {
-    color: #e91e63;
+    color: #f8bbd0;
 }
 
 .meta {
@@ -160,7 +160,7 @@ input[type="text"], input[type="password"], textarea, select {
 }
 
 button[type="submit"], .button {
-    background-color: #e91e63; /* 진한 핑크색 버튼 */
+    background-color: #f38db0; /* 진한 핑크색 버튼 */
     color: white;
     padding: 12px 20px;
     border: none;

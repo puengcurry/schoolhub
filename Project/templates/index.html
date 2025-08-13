@@ -21,3 +21,12 @@
   <p>등록된 질문이 없습니다.</p>
 {% endif %}
 {% endblock %}
+
+<div class="logged-in-users">
+    <h3>현재 로그인한 사용자</h3>
+    <ul>
+        {% for user in logged_in_users %}
+        <li>{{ user.username }}</li>
+        {% endfor %}
+    </ul>
+</div>
